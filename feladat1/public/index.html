@@ -1,72 +1,21 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vizsga</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container mt-5">
-    <h2 class="mb-4">Vizsga</h2>
-    <form id="studentForm">
-      <div class="form-group">
-        <label for="name">Név</label>
-        <input type="text" class="form-control" id="name" placeholder="Adja meg a nevet" required minlength="3">
-        <div class="invalid-feedback">A név nem lehet 3 karakternél rövidebb!</div>
-      </div>
-      <div class="form-group">
-        <label for="points">Pontszám</label>
-        <input type="number" class="form-control" id="points" placeholder="Adja meg a pontszámot" min="1" max="100" required>
-        <div class="invalid-feedback">A pont 0 és 100 közötti szám lehet!</div>
-      </div>
-      <button type="submit" class="btn btn-primary">Hozzáadás</button>
-    </form>
-    <ul id="studentList" class="mt-4"></ul>
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.getElementById('studentForm');
-      const nameInput = document.getElementById('name');
-      const pointsInput = document.getElementById('points');
-      const studentList = document.getElementById('studentList');
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        
-        const name = nameInput.value;
-        const points = parseInt(pointsInput.value);
-
-        if (name.length < 3) {
-          nameInput.classList.add('is-invalid');
-          return;
-        } else {
-          nameInput.classList.remove('is-invalid');
-        }
-
-        if (isNaN(points) || points < 0 || points > 100) {
-          pointsInput.classList.add('is-invalid');
-          return;
-        } else {
-          pointsInput.classList.remove('is-invalid');
-        }
-
-        const listItem = document.createElement('li');
-        listItem.textContent = name + ' - ' + points + ' pont';
-        if (points < 51) {
-          listItem.style.color = 'red';
-        }
-        studentList.appendChild(listItem);
-
-        nameInput.value = '';
-        pointsInput.value = '';
-      });
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Vizsga Feladat 1</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>
